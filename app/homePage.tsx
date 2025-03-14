@@ -6,7 +6,7 @@ import AutoCarousel from "./components/AutoCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight, ChevronUp, Mail, MapPin, MenuIcon, Phone, X } from "lucide-react";
 import HomePageCarasoul from "./components/homePageCarasoul";
-import ServiceAreasAndCareers from "./components/area-services";
+import AreaService from "./components/area-services";
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -241,7 +241,7 @@ const HomePage = () => {
           </button>
         </main>
         {/* Areas services */}
-        <ServiceAreasAndCareers />
+        <AreaService />
         {/* footer */}
         <footer className="bg-[#1B4C80] text-white">
           <div className="container mx-auto px-4 py-8">

@@ -5,7 +5,7 @@ import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "leaflet/dist/leaflet.css";
 
-const ServiceAreasAndCareers = () => {
+const AreaService = () => {
   // const mapRef = useRef<HTMLDivElement>(null);
   // const [mapLoaded, setMapLoaded] = useState(false);
   // const leafletMap = useRef<any>(null);
@@ -111,4 +111,4 @@ const ServiceAreasAndCareers = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(ServiceAreasAndCareers), { ssr: false });
+export default AreaService;
