@@ -11,11 +11,11 @@ export default function ServiceAreasAndCareers() {
   const leafletMap = useRef<L.Map | null>(null);
 
   useEffect(() => {
-    // Fix for Leaflet icon issues in Next.js
     const fixLeafletIcon = () => {
       if (typeof window !== "undefined") {
-        if (L.Icon.Default.prototype.hasOwnProperty("_getIconUrl")) {
-          delete (L.Icon.Default.prototype as any)._getIconUrl;
+        const iconDefault = L.Icon.Default.prototype as unknown as { _getIconUrl?: () => void };
+        if (iconDefault._getIconUrl) {
+          delete iconDefault._getIconUrl;
         }
 
         L.Icon.Default.mergeOptions({
@@ -28,11 +28,11 @@ export default function ServiceAreasAndCareers() {
 
     fixLeafletIcon();
 
-    // Initialize map only if it doesn't exist yet
     if (mapRef.current && !leafletMap.current) {
-      const center: [number, number] = [38.9072, -77.0369]; // Washington DC
+      const mapContainer = mapRef.current; // ✅ Fix: Store mapRef.current in a variable
+      const center: [number, number] = [38.9072, -77.0369];
 
-      const map = L.map(mapRef.current).setView(center, 9);
+      const map = L.map(mapContainer).setView(center, 9);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -69,14 +69,10 @@ export default function ServiceAreasAndCareers() {
         map.invalidateSize();
       });
 
-      if (mapRef.current) {
-        resizeObserver.observe(mapRef.current);
-      }
+      resizeObserver.observe(mapContainer);
 
       return () => {
-        if (mapRef.current) {
-          resizeObserver.unobserve(mapRef.current);
-        }
+        resizeObserver.unobserve(mapContainer);
         map.remove();
         leafletMap.current = null;
       };
