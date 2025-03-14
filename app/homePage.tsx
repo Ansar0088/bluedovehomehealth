@@ -165,7 +165,7 @@ const HomePage = () => {
                 </p>
 
                 <p className="text-base md:text-lg">
-                  Blue Dove's CEO has over 35 years of experience as a registered nurse. She has been involved in many
+                  Blue Dove CEO has over 35 years of experience as a registered nurse. She has been involved in many
                   quality assurance programs that involve enhancing the quality of life of the elderly and disabled. Her
                   belief is to make a positive impact on those who are most vulnerable and treating each individual as a
                   holistic being. We provide extraordinary care to those who are among the most vulnerable populations. We
@@ -283,7 +283,7 @@ const HomePage = () => {
                     <span className="mr-2">➔</span> Contact Us
                   </Link>
                   <Link href="/faq" className="hover:text-yellow-400 transition-colors flex items-center">
-                    <span className="mr-2">➔</span> FAQ's
+                    <span className="mr-2">➔</span> FAQs
                   </Link>
                 </nav>
               </div>
