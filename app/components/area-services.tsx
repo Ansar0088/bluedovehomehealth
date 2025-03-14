@@ -1,9 +1,6 @@
-"use client";
 // import { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import "leaflet/dist/leaflet.css";
 
 const AreaService = () => {
   // const mapRef = useRef<HTMLDivElement>(null);
