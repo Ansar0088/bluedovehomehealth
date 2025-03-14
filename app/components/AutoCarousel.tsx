@@ -34,8 +34,8 @@ const AutoCarousel = () => {
       <CarouselContent style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
         {images.map((item, index) => (
           <CarouselItem key={index} className="">
-<div className="flex items-center justify-between py-5 flex-wrap gap-4 sm:flex-nowrap">
-<div >
+            <div className="flex items-center justify-between py-5 flex-wrap gap-4 sm:flex-nowrap">
+              <div >
                 <h2 className="text-3xl font-bold w-[550px]">{item.text}</h2>
               </div>
               <div>

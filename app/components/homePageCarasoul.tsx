@@ -104,7 +104,7 @@ const HomePageCarasoul = () => {
                                                 </div>
                                             </div>
                                             <div className="mt-2">
-                                                <h3 className="text-center font-semibold text-lg">{slide.title}</h3>
+                                                <h3 className="text-center font-semibold text-lg">ss{slide.title}</h3>
                                                 <div className="h-1 w-full bg-yellow-400 mt-1"></div>
                                             </div>
                                         </div>
