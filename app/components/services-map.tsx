@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Maximize, Plus, Minus } from 'lucide-react';
 
 const ServicesMap = () => {
-  const [_isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   // Set isClient to true when component mounts (client-side)
@@ -43,12 +43,12 @@ const ServicesMap = () => {
 
   return (
     <div className="w-full mt-10">
-      
       <div className="relative">
         <div
           id="map-container"
           className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-gray-200"
         >
+
           {isClient && (
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d777367.8864581011!2d-77.70990776406044!3d38.89655513868886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6de5af6e45b%3A0xc2524522d4885d2a!2sWashington%2C%20DC%2C%20USA!5e0!3m2!1sen!2s!4v1710863403517!5m2!1sen!2s"
@@ -70,9 +70,8 @@ const ServicesMap = () => {
             >
               <Maximize size={20} />
             </button>
-            
             <button 
-              className="bg-white rounded-md p-2 shadow-md hover:bg-gray-100"
+  className={`bg-white rounded-md p-2 shadow-md hover:bg-gray-100 ${isFullscreen ? 'bg-gray-300' : ''}`}
               aria-label="Zoom in"
             >
               <Plus size={20} />

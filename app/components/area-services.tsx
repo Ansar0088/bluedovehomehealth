@@ -5,7 +5,7 @@ import { Maximize, Plus, Minus, Users } from 'lucide-react';
 import Link from 'next/link';
 
 const AreaService = () => {
-  const [_isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const AreaService = () => {
 
   const toggleFullscreen = () => {
     const mapElement = document.getElementById('map-container');
-    
+
     if (!document.fullscreenElement) {
       if (mapElement?.requestFullscreen) {
         mapElement.requestFullscreen();
@@ -31,7 +31,7 @@ const AreaService = () => {
   return (
     <div className="w-full px-4 md:px-8 py-8 bg-white">
       <h2 className="text-3xl font-bold text-[#1e3a8a] mb-6">AREAS WE SERVE</h2>
-      
+
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Map container */}
         <div className="flex-1">
@@ -50,32 +50,32 @@ const AreaService = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             )}
-            
+
             {/* Map controls */}
             <div className="absolute top-2 right-2 flex flex-col gap-2">
-              <button 
+              <button
                 onClick={toggleFullscreen}
                 className="bg-white rounded-md p-2 shadow-md hover:bg-gray-100"
                 aria-label="Toggle fullscreen"
               >
                 <Maximize size={20} />
               </button>
-              
-              <button 
-                className="bg-white rounded-md p-2 shadow-md hover:bg-gray-100"
+
+              <button
+                className={`bg-white rounded-md p-2 shadow-md hover:bg-gray-100 ${isFullscreen ? 'bg-gray-300' : ''}`}
                 aria-label="Zoom in"
               >
                 <Plus size={20} />
               </button>
-              
-              <button 
+
+              <button
                 className="bg-white rounded-md p-2 shadow-md hover:bg-gray-100"
                 aria-label="Zoom out"
               >
                 <Minus size={20} />
               </button>
             </div>
-            
+
             {/* Map attribution */}
             <div className="absolute bottom-0 right-0 bg-white bg-opacity-70 text-xs p-1">
               <span className="mr-1">MapPress</span>
@@ -84,15 +84,15 @@ const AreaService = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Career opportunities container */}
         <div className="lg:w-[450px] xl:w-[500px]">
           <div className="h-full bg-[#1e3a8a] text-white p-8 rounded-lg flex flex-col justify-center items-center">
-            <h2 className="text-4xl font-bold mb-4 text-center">CAREER<br/> OPPORTUNITIES</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center">CAREER<br /> OPPORTUNITIES</h2>
             <p className="text-center text-xl mb-10">CLICK ON ANY POSITION TO VIEW MORE DETAILS AND APPLY ONLINE</p>
-            
+
             <Link href="#jobs" className="bg-[#f59e0b] hover:bg-white text-black font-bold py-3 px-6 rounded-xs flex items-center justify-center transition-colors duration-200">
-              JOIN OUR TEAM 
+              JOIN OUR TEAM
               <span className="ml-2 inline-flex"><Users /></span>
             </Link>
           </div>
