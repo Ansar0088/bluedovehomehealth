@@ -1,9 +1,8 @@
-import HomePage from "./homePage";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
-    <HomePage/>
+   
     </>
   );
 }
