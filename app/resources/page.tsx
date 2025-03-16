@@ -73,7 +73,7 @@ const Page = () => {
                 variants={containerVariants}
                 className="flex flex-col space-y-12 mt-5"
             >
-                {sections.map((section, index) => (
+                {sections.map((section) => (
                     <motion.div
                         key={section.id}
                         variants={itemVariants}
