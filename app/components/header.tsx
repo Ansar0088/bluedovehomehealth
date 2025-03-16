@@ -4,13 +4,26 @@ import React, { useEffect, useRef, useState } from 'react'
 import { CalendarDays, ChevronRight, Linkedin, MenuIcon, X } from "lucide-react";
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const [activeMenu, setActiveMenu] = useState<string | null>(pathname);
+  const router = useRouter();
+  
+  // Set default active menu to /home
+  const [activeMenu, setActiveMenu] = useState<string>("/home");
+
+  useEffect(() => {
+    // If we're at the root path, redirect to /home
+    if (pathname === "/") {
+      router.push("/home");
+    } else {
+      // Otherwise, set the active menu to the current path
+      setActiveMenu(pathname);
+    }
+  }, [pathname, router]);
 
   // Close menu when clicking outside
   useEffect(() => {
