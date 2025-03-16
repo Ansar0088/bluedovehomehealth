@@ -2,7 +2,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, CalendarDays, ChevronsRight } from "lucide-react"
+import { CalendarDays, ChevronsRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const OurCompanyPage=()=> {
