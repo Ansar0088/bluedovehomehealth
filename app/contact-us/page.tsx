@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plane } from "lucide-react";
+import ServicesMap from "../components/services-map";
 
 const ContactPage = () => {
   return (
@@ -114,6 +115,7 @@ const ContactPage = () => {
           </form>
         </motion.div>
       </div>
+      <ServicesMap/>
     </div>
   );
 };
