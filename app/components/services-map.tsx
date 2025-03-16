@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Maximize, Plus, Minus } from 'lucide-react';
 
 const ServicesMap = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [_isFullscreen, setIsFullscreen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   // Set isClient to true when component mounts (client-side)

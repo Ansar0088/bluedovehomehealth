@@ -2,11 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Maximize, Plus, Minus, Users } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const AreaService = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [_isFullscreen, setIsFullscreen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
