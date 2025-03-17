@@ -114,14 +114,6 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-
-          {/* Scroll to top button */}
-          <button
-            className="fixed bottom-6 right-6 bg-yellow-500 hover:bg-yellow-600 text-blue-900 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
-          // onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <ChevronUp className="h-6 w-6" />
-          </button>
         </main>
         {/* Areas services */}
         <AreaService />

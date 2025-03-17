@@ -3,6 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
+interface ServicePageProps {
+  params: { slug: string };
+}
+
 const serviceData = {
   "chronic-care": {
     title: "Management of Chronic Care Needs",
@@ -36,17 +40,17 @@ const serviceData = {
   },
 };
 
-export default function ServiceDetails({ params }: { params: { slug: string } }) {
+export default function ServiceDetails({ params }: ServicePageProps) {
   const service = serviceData[params.slug as keyof typeof serviceData];
 
   if (!service) {
-    return notFound(); // Show 404 if slug doesn't match any service
+    return notFound(); 
   }
 
   return (
     <div className="container mx-auto px-6 py-10">
       {/* Back Button */}
-      <Link href="/services" className="inline-flex items-center text-white bg-[#1a4e7e] px-4 py-2 rounded-lg shadow-md hover:bg-[#15406a] transition-all">
+      <Link href="/services" className="inline-flex items-center text-white bg-[#1a4e7e] px-4 py-2 rounded-xs shadow-md hover:bg-[#15406a] transition-all">
         <ArrowLeft className="h-5 w-5 mr-2" />
         Back to services
       </Link>
