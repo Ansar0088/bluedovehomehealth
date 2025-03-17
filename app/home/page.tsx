@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import AutoCarousel from "../components/AutoCarousel";
 import AreaService from "../components/area-services";
 import HomePageCarasoul from "../components/homePageCarasoul";
