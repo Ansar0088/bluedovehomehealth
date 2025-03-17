@@ -4,44 +4,50 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-const serviceData: Record<string, { title: string; description: string; image: string }> = {
-  "chronic-care": {
-    title: "Management of Chronic Care Needs",
-    description:
-      "At Blue Dove, we provide specialized and compassionate care for individuals with chronic health conditions...",
-    image: "/first.jpg",
-  },
-  "home-health": {
-    title: "Home Health Services",
-    description:
-      "Caring for your loved ones in the comfort of their homes, providing medical treatment...",
-    image: "/meet.jpg",
-  },
-  "private-duty-nursing": {
-    title: "Private Duty Skilled Nursing",
-    description:
-      "Our private duty skilled nursing services are designed to meet the unique needs of those requiring advanced medical care...",
-    image: "/partner.jpg",
-  },
-  "private-duty-home-health-aid": {
-    title: "Private Duty Home Health Aid",
-    description:
-      "We understand the importance of maintaining independence while receiving care at home...",
-    image: "/new.jpg",
-  },
-  "nursing-care": {
-    title: "Private Duty Skilled Nursing",
-    description:
-      "We recognize that some individuals require specialized care that goes beyond basic assistance...",
-    image: "/nursing.jpg",
-  },
-};
+// Simulating async data fetching
+async function getServiceData(slug: string) {
+  const serviceData: Record<string, { title: string; description: string; image: string }> = {
+    "chronic-care": {
+      title: "Management of Chronic Care Needs",
+      description:
+        "At Blue Dove, we provide specialized and compassionate care for individuals with chronic health conditions...",
+      image: "/first.jpg",
+    },
+    "home-health": {
+      title: "Home Health Services",
+      description:
+        "Caring for your loved ones in the comfort of their homes, providing medical treatment...",
+      image: "/meet.jpg",
+    },
+    "private-duty-nursing": {
+      title: "Private Duty Skilled Nursing",
+      description:
+        "Our private duty skilled nursing services are designed to meet the unique needs of those requiring advanced medical care...",
+      image: "/partner.jpg",
+    },
+    "private-duty-home-health-aid": {
+      title: "Private Duty Home Health Aid",
+      description:
+        "We understand the importance of maintaining independence while receiving care at home...",
+      image: "/new.jpg",
+    },
+    "nursing-care": {
+      title: "Private Duty Skilled Nursing",
+      description:
+        "We recognize that some individuals require specialized care that goes beyond basic assistance...",
+      image: "/nursing.jpg",
+    },
+  };
 
-export default function ServiceDetails({ params }: Props) {
-  const service = serviceData[params.slug];
+  return serviceData[slug] || null;
+}
+
+export default async function ServiceDetails({ params }: Props) {
+  const { slug } = await params; // Await params if it’s a Promise
+  const service = await getServiceData(slug);
 
   if (!service) {
     return notFound(); // Show 404 if slug doesn't match any service
